@@ -1827,6 +1827,79 @@ at 30/07/2012 17:45:58</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="con-cuistack">
+<description>Audio connectors made by Cui Stack</description>
+<packages>
+<package name="MJ-3523-SMT">
+<wire x1="3" y1="-7" x2="3" y2="7.5" width="0.127" layer="21"/>
+<wire x1="3" y1="7.5" x2="-3" y2="7.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="7.5" x2="-3" y2="-7" width="0.127" layer="21"/>
+<wire x1="-3" y1="-7" x2="-2.5" y2="-7" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-7" x2="2.5" y2="-7" width="0.127" layer="21"/>
+<wire x1="2.5" y1="-7" x2="3" y2="-7" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-7" x2="-2.5" y2="-9.25" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-9.25" x2="-2.25" y2="-9.5" width="0.127" layer="21"/>
+<wire x1="-2.25" y1="-9.5" x2="2.25" y2="-9.5" width="0.127" layer="21"/>
+<wire x1="2.25" y1="-9.5" x2="2.5" y2="-9.25" width="0.127" layer="21"/>
+<wire x1="2.5" y1="-9.25" x2="2.5" y2="-7" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-9.25" x2="2.5" y2="-9.25" width="0.07" layer="21"/>
+<smd name="1" x="3.85" y="-4.6" dx="2.5" dy="2.2" layer="1"/>
+<smd name="2" x="3.85" y="4.7" dx="2.5" dy="2.8" layer="1"/>
+<smd name="10" x="-0.75" y="8.85" dx="2.8" dy="2.5" layer="1"/>
+<text x="2.54" y="-6.35" size="1.27" layer="27" rot="R90">&gt;Value</text>
+<text x="-1.27" y="-6.35" size="1.27" layer="25" rot="R90">&gt;Name</text>
+<rectangle x1="3.05" y1="-5.15" x2="4.55" y2="-4.15" layer="21"/>
+<rectangle x1="-1.5" y1="7.6" x2="0" y2="9.1" layer="21"/>
+<rectangle x1="3.05" y1="3.95" x2="4.55" y2="5.45" layer="21"/>
+<hole x="0" y="-3.5" drill="1.7"/>
+<hole x="0" y="3.5" drill="1.7"/>
+</package>
+</packages>
+<symbols>
+<symbol name="KS-S2">
+<wire x1="6.35" y1="-2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="-2.54" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="4.445" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="4.445" x2="-2.921" y2="3.302" width="0.1524" layer="94"/>
+<wire x1="-2.921" y1="3.302" x2="-2.159" y2="3.302" width="0.1524" layer="94"/>
+<wire x1="-2.159" y1="3.302" x2="-2.54" y2="4.445" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="5.08" x2="1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="6.35" y1="-2.54" x2="6.35" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="8.89" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="6.35" y1="5.08" x2="8.89" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-2.54" x2="8.89" y2="5.08" width="0.254" layer="94"/>
+<circle x="-5.08" y="5.08" radius="0.127" width="0.4064" layer="94"/>
+<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="TIP" x="-7.62" y="5.08" visible="pad" length="short" direction="pas"/>
+<pin name="TSHUNT" x="-7.62" y="2.54" visible="pad" length="short" direction="pas"/>
+<pin name="EARTH" x="-7.62" y="-5.08" visible="pad" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MJ-3523-SMT">
+<gates>
+<gate name="G$1" symbol="KS-S2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MJ-3523-SMT">
+<connects>
+<connect gate="G$1" pin="EARTH" pad="1"/>
+<connect gate="G$1" pin="TIP" pad="2"/>
+<connect gate="G$1" pin="TSHUNT" pad="10"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1841,6 +1914,16 @@ at 30/07/2012 17:45:58</description>
 <part name="U1" library="analog-devices-01" deviceset="AD7656YSTZ" device=""/>
 <part name="U2" library="analog-devices-01" deviceset="AD5754RBREZ" device=""/>
 <part name="U3" library="ti-extended" deviceset="SN74ABT541BDW" device=""/>
+<part name="U$2" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$3" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$4" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$5" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$6" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$7" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$10" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$11" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$12" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
+<part name="U$8" library="con-cuistack" deviceset="MJ-3523-SMT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1860,10 +1943,70 @@ at 30/07/2012 17:45:58</description>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="76.2" y="35.56"/>
+<instance part="U$2" gate="G$1" x="-81.28" y="76.2" rot="R180"/>
+<instance part="U$3" gate="G$1" x="-81.28" y="58.42" rot="R180"/>
+<instance part="U$4" gate="G$1" x="-81.28" y="40.64" rot="R180"/>
+<instance part="U$5" gate="G$1" x="-81.28" y="22.86" rot="R180"/>
+<instance part="U$6" gate="G$1" x="-81.28" y="5.08" rot="R180"/>
+<instance part="U$7" gate="G$1" x="-81.28" y="-12.7" rot="R180"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="V4"/>
+<wire x1="-63.5" y1="30.48" x2="38.1" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="30.48" x2="-63.5" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="TIP"/>
+<wire x1="-63.5" y1="17.78" x2="-73.66" y2="17.78" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<wire x1="-63.5" y1="35.56" x2="-63.5" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="V3"/>
+<wire x1="-63.5" y1="33.02" x2="38.1" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="TIP"/>
+<wire x1="-73.66" y1="35.56" x2="-63.5" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="V2"/>
+<wire x1="38.1" y1="35.56" x2="-60.96" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="35.56" x2="-60.96" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="G$1" pin="TIP"/>
+<wire x1="-60.96" y1="53.34" x2="-73.66" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<wire x1="-58.42" y1="71.12" x2="-58.42" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="V1"/>
+<wire x1="-58.42" y1="38.1" x2="38.1" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="TIP"/>
+<wire x1="-73.66" y1="71.12" x2="-58.42" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="V5"/>
+<wire x1="-60.96" y1="27.94" x2="38.1" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="27.94" x2="-60.96" y2="0" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="TIP"/>
+<wire x1="-60.96" y1="0" x2="-73.66" y2="0" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="V6"/>
+<wire x1="-58.42" y1="25.4" x2="38.1" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="25.4" x2="-58.42" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="TIP"/>
+<wire x1="-58.42" y1="-17.78" x2="-73.66" y2="-17.78" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -1871,10 +2014,50 @@ at 30/07/2012 17:45:58</description>
 </plain>
 <instances>
 <instance part="U2" gate="A" x="73.66" y="50.8"/>
+<instance part="U$10" gate="G$1" x="177.8" y="63.5"/>
+<instance part="U$11" gate="G$1" x="177.8" y="45.72"/>
+<instance part="U$12" gate="G$1" x="177.8" y="27.94"/>
+<instance part="U$8" gate="G$1" x="177.8" y="81.28"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="N$7" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="VOUTA"/>
+<wire x1="93.98" y1="78.74" x2="152.4" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="78.74" x2="152.4" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="TIP"/>
+<wire x1="152.4" y1="86.36" x2="170.18" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="VOUTB"/>
+<wire x1="152.4" y1="76.2" x2="93.98" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="76.2" x2="152.4" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G$1" pin="TIP"/>
+<wire x1="152.4" y1="68.58" x2="170.18" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="VOUTC"/>
+<wire x1="93.98" y1="73.66" x2="149.86" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="73.66" x2="149.86" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="U$11" gate="G$1" pin="TIP"/>
+<wire x1="149.86" y1="50.8" x2="170.18" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="VOUTD"/>
+<wire x1="93.98" y1="71.12" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="71.12" x2="147.32" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="U$12" gate="G$1" pin="TIP"/>
+<wire x1="147.32" y1="33.02" x2="170.18" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
