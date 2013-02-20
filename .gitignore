@@ -1,11 +1,11 @@
-# Some rules to ingore certain files
+# Some rules to ignore certain files
 
-# Ingore all images/modules/execultables/binaries etc.
+# Ignore all images/modules/execultables/binaries etc.
 *.bin
 *.o
 *.exe
 
 
-# Ingore the backup files created by EAGLE
+# Ignore the backup files created by EAGLE
 *.s\#*
 *.b\#*
