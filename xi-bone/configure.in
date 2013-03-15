@@ -22,11 +22,10 @@ AC_CHECK_LIB([hdf5_hl],[H5PTopen])
 HDF_LIBS=$LIBS
 AC_SUBST(HDF_LIBS)
 
-AX_HAVE_QT
-
-if test "$have_qt" != "yes" ; then
-    AC_MSG_ERROR([Qt not found; see help on how to specify Qt location])
-fi
+#AX_HAVE_QT
+##if test "$have_qt" != "yes" ; then
+#    AC_MSG_ERROR([Qt not found; see help on how to specify Qt location])
+#fi
 
 rtos=""
 
@@ -62,8 +61,8 @@ if test x$rtos = xxenomai; then
 elif test x$rtos = xposix; then
   RTOS_CPPFLAGS='-I/usr/local/include'
   RTOS_LDFLAGS='-I/usr/local/include -L/usr/local/lib -lpthread'
-elif test x$rtos = x;then
-  AC_MSG_ERROR([no realtime system found])
+#elif test x$rtos = x;then
+#  AC_MSG_ERROR([no realtime system found])
 fi
 AC_SUBST(RTOS_CPPFLAGS)
 AC_SUBST(RTOS_LDFLAGS)
@@ -158,8 +157,6 @@ plugins/amplifier_control/axon_axopatch200_commander/Makefile
 plugins/amplifier_control/axon_multiclamp700_commander/Makefile
 plugins/analogy_device/Makefile
 plugins/clamp_protocol/Makefile
-plugins/comedi_device/Makefile
-plugins/comedilib_device/Makefile
 plugins/connector/Makefile
 plugins/data_recorder/Makefile
 plugins/dynamo_model_loader/Makefile
