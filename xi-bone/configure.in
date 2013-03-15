@@ -30,7 +30,6 @@ fi
 
 rtos=""
 
-AC_CHECK_RTAI
 AC_ARG_ENABLE(xenomai,
   [  --enable-xenomai        build the Xenomai interface],
   [case "${enablecal}" in
