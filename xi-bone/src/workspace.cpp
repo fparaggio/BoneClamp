@@ -222,7 +222,7 @@ void Workspace::Instance::setValue(size_t n,double value) {
     if(n >= parameter.size() || !parameter[n].data)
         return;
 
-    if(RT::OS::isRealtime() && *parameter[n].data != value) {
+    /*if(RT::OS::isRealtime() && *parameter[n].data != value) {
         *parameter[n].data = value;
 
         ::Event::Object event(::Event::WORKSPACE_PARAMETER_CHANGE_EVENT);
@@ -230,10 +230,10 @@ void Workspace::Instance::setValue(size_t n,double value) {
         event.setParam("index",(void *)n);
         event.setParam("value",(void *)parameter[n].data);
         ::Event::Manager::getInstance()->postEventRT(&event);
-    } else {
+    } else {*/
         ParameterChangeEvent event(getID(),n,value,parameter[n].data);
         RT::System::getInstance()->postEvent(&event);
-    }
+    //}
 }
 
 void Workspace::Instance::setComment(size_t n,std::string newComment) {

@@ -42,7 +42,7 @@ namespace RT {
         int createTask(Task *,void *(*)(void *),void *,int =0);
         void deleteTask(Task);
 
-        int setPeriod(Task,long long);
+        //int setPeriod(Task,long long);
         void sleepTimestep(Task);
 
         bool isRealtime(void);
@@ -357,7 +357,7 @@ namespace RT {
          * \param period The new desired period.
          * \return 0 on success, A negative value upon failure.
          */
-        int setPeriod(long long period);
+        //int setPeriod(long long period);
 
         /*!
          * Loop through each Device and executes a callback.
