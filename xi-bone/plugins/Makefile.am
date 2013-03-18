@@ -7,7 +7,6 @@ SUBDIRS = \
 	amplifier_control/axon_axopatch1d_commander \
 	amplifier_control/axon_axopatch200_commander \
 	amplifier_control/axon_multiclamp700_commander \
-	clamp_protocol \
 	connector \
 	data_recorder \
 	dynamo_model_loader \

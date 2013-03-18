@@ -16,7 +16,7 @@ DEBIAN_DIST = debian/changelog  \
               debian/rules.rtxi-base      \
               debian/rtxi-base.rtxi.init  
 
-EXTRA_DIST  = autogen.sh TODO $(DEBIAN_DIST) $(ACLOCAL_DIST)
+EXTRA_DIST  = autogen.sh $(DEBIAN_DIST) $(ACLOCAL_DIST)
 
 dist-hook: ChangeLog
 	find $(srcdir)/dynamo -name "*.mlb" -or -name "*.sig" -or -name "*.sml" -or \
@@ -50,34 +50,6 @@ rtxi.conf:
 	@echo ' <OBJECT component="io" id="1" >'					>> $@
 	@echo '  <PARAM name="Num Links" >0</PARAM>'					>> $@
 	@echo ' </OBJECT>'								>> $@
-if BUILD_COMEDI 
-	@echo ' <OBJECT component="plugin" library="comedi_driver.so" id="2" >'		>> $@
-	@echo '  <PARAM name="0" >/dev/comedi0</PARAM>'					>> $@
-	@echo '  <PARAM name="Num Devices" >1</PARAM>'					>> $@
-	@echo '  <OBJECT id="13" name="0" />'						>> $@
-	@echo ' </OBJECT>'								>> $@
-endif
-if BUILD_COMEDILIB 
-	@echo ' <OBJECT component="plugin" library="comedi_driver.so" id="2" >'		>> $@
-	@echo '  <PARAM name="0" >/dev/comedi0</PARAM>'					>> $@
-	@echo '  <PARAM name="Num Devices" >1</PARAM>'					>> $@
-	@echo '  <OBJECT id="13" name="0" />'						>> $@
-	@echo ' </OBJECT>'								>> $@
-endif
-if BUILD_ANALOGY 
-	@echo ' <OBJECT component="plugin" library="analogy_driver.so" id="2" >'		>> $@
-	@echo '  <PARAM name="0" >analogy0</PARAM>'					>> $@
-	@echo '  <PARAM name="Num Devices" >1</PARAM>'					>> $@
-	@echo '  <OBJECT id="13" name="0" />'						>> $@
-	@echo ' </OBJECT>'								>> $@
-endif
-if BUILD_NI
-	@echo ' <OBJECT component="plugin" library="ni_driver.so" id="2" >'		>> $@
-	@echo '  <PARAM name="0" >PCI::SCAN</PARAM>'					>> $@
-	@echo '  <PARAM name="Num Devices" >1</PARAM>'					>> $@
-	@echo '  <OBJECT id="14" name="0" />'						>> $@
-	@echo ' </OBJECT>'								>> $@
-endif
 	@echo ' <OBJECT component="plugin" library="model_loader.so" id="3" />'		>> $@
 	@echo ' <OBJECT component="plugin" library="dynamo_model_loader.so" id="4" />'	>> $@
 	@echo ' <OBJECT component="plugin" library="system_control.so" id="5" />'	>> $@
@@ -89,9 +61,6 @@ endif
 	@echo ' <OBJECT component="plugin" library="performance_measurement.so" id="9" />'>> $@
 	@echo ' <OBJECT component="plugin" library="userprefs.so" id="10" />'>> $@
 	@echo ' <OBJECT component="plugin" library="membrane_test.so" id="11" />'>> $@
-if BUILD_CLAMPPROTOCOL
-	@echo ' <OBJECT component="plugin" library="clamp_protocol.so" id="16" />'>> $@
-endif
 	@echo ' <OBJECT component="plugin" library="am_2400_commander.so" id="12" />'>> $@
 	@echo ' <OBJECT component="plugin" library="axon_axopatch1d_commander.so" id="13" />'>> $@
 	@echo ' <OBJECT component="plugin" library="axon_axopatch200_commander.so" id="14" />'>> $@

@@ -4,9 +4,9 @@ MAINTAINERCLEANFILES = Makefile.in
 
 include $(top_srcdir)/Makefile.buildvars
 
-if BUILD_NI
-pkglib_LTLIBRARIES = ni_driver.la
-endif
+#if BUILD_NI
+#pkglib_LTLIBRARIES = ni_driver.la
+#endif
 
 ni_driver_la_LDFLAGS = -module -avoid-version
 
