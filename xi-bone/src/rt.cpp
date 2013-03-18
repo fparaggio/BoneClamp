@@ -86,13 +86,13 @@ int RT::System::SetPeriodEvent::callback(void) {
     int retval;
     RT::System *sys = RT::System::getInstance();
 
-    /*if(!(retval = RT::OS::setPeriod(sys->task,period))) {
+    if(!(retval = RT::OS::setPeriod(sys->task,period))) {
         sys->period = period;
 
         ::Event::Object event(::Event::RT_PERIOD_EVENT);
         event.setParam("period",&period);
         ::Event::Manager::getInstance()->postEventRT(&event);
-    }*/
+    }
 
     return retval;
 }
@@ -171,7 +171,7 @@ RT::System::~System(void) {
     //RT::OS::shutdown();
 }
 
-/*int RT::System::setPeriod(long long period) {
+int RT::System::setPeriod(long long period) {
     ::Event::Object event_pre(::Event::RT_PREPERIOD_EVENT);
     event_pre.setParam("period",&period);
     ::Event::Manager::getInstance()->postEvent(&event_pre);
@@ -184,7 +184,7 @@ RT::System::~System(void) {
     ::Event::Manager::getInstance()->postEvent(&event_post);
 
     return retval;
-}*/
+}
 
 void RT::System::foreachDevice(void (*callback)(RT::Device *,void *),void *param) {
     Mutex::Locker lock(&deviceMutex);

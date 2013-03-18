@@ -232,7 +232,7 @@ int Settings::Manager::load(const std::string &filename) {
 	MainWindow::getInstance()->clearModuleMenu();
 
 	long long period = RT::System::getInstance()->getPeriod();
-  //RT::System::getInstance()->setPeriod(1000000);
+  RT::System::getInstance()->setPeriod(1000000);
 
     Object::State s;
     Plugin::Object *plugin;
@@ -260,8 +260,8 @@ int Settings::Manager::load(const std::string &filename) {
     for(std::list<defer_t>::iterator i = deferList.begin(),end = deferList.end();i != end;++i)
         i->object->deferred(i->s);
 
-    //if(period)
-      //  RT::System::getInstance()->setPeriod(period);
+    if(period)
+       RT::System::getInstance()->setPeriod(period);
 
     // create QSettings
 	QSettings userprefs;
