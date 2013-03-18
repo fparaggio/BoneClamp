@@ -124,12 +124,12 @@ RT::Device::~Device(void) {
 }
 
 void RT::Device::setActive(bool state) {
-    /*if(RT::OS::isRealtime())
+    if(RT::OS::isRealtime())
         active = state;
-    else {*/
+    else {
         SetDeviceActive event(this,state);
         RT::System::getInstance()->postEvent(&event);
-    //}
+    }
 }
 
 RT::Thread::Thread(Priority p)
@@ -142,19 +142,19 @@ RT::Thread::~Thread(void) {
 }
 
 void RT::Thread::setActive(bool state) {
-    /*if(RT::OS::isRealtime())
+    if(RT::OS::isRealtime())
         active = state;
-    else {*/
+    else {
         SetThreadActive event(this,state);
         RT::System::getInstance()->postEvent(&event);
-    //}
+    }
 }
 
 RT::System::System(void)
     : finished(false), eventFifo(100*sizeof(RT::Event *)) {
     period = 1000000; // 1 kHz
 
-    /*if(RT::OS::initiate()) {
+    if(RT::OS::initiate()) {
         ERROR_MSG("RT::System::System : failed to initialize the realtime system\n");
         return;
     }
@@ -162,13 +162,13 @@ RT::System::System(void)
     if(RT::OS::createTask(&task,&System::bounce,this)) {
         ERROR_MSG("RT::System::System : failed to create realtime thread\n");
         return;
-    }*/
+    }
 }
 
 RT::System::~System(void) {
     finished = true;
-    //RT::OS::deleteTask(task);
-    //RT::OS::shutdown();
+    RT::OS::deleteTask(task);
+    RT::OS::shutdown();
 }
 
 int RT::System::setPeriod(long long period) {
@@ -291,13 +291,13 @@ void RT::System::execute(void) {
     List<Thread>::iterator threadListBegin = threadList.begin();
     List<Thread>::iterator threadListEnd   = threadList.end();
 
-    /*if(RT::OS::setPeriod(task,period)) {
+    if(RT::OS::setPeriod(task,period)) {
         ERROR_MSG("RT::System::execute : failed to set the initial period of the realtime thread\n");
         return;
-    }*/
+    }
 
     while(!finished) {
-        //RT::OS::sleepTimestep(task);
+        RT::OS::sleepTimestep(task);
 
         for(iDevice = deviceListBegin;iDevice != deviceListEnd;++iDevice)
             if(iDevice->getActive()) iDevice->read();

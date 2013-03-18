@@ -9,6 +9,8 @@ SUBDIRS = \
 	amplifier_control/axon_multiclamp700_commander \
 	analogy_device \
 	clamp_protocol \
+	comedi_device \
+	comedilib_device \
 	connector \
 	data_recorder \
 	dynamo_model_loader \

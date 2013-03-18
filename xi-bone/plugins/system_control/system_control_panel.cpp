@@ -249,7 +249,7 @@ void SystemControlPanel::applyThreadTab(void) {
     double period = periodEdit->text().toDouble();
     period *= pow(10,3*(3-periodUnitList->currentItem()));
 
-    //RT::System::getInstance()->setPeriod(static_cast<long long>(period));
+    RT::System::getInstance()->setPeriod(static_cast<long long>(period));
 }
 
 void SystemControlPanel::createChannelTab(void) {

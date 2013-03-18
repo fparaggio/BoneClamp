@@ -44,6 +44,10 @@ run_SOURCES = \
 nodist_run_SOURCES = \
 		$(top_srcdir)/src/moc_plugin.cpp
 
+if RTAI3
+run_SOURCES += \
+		$(top_srcdir)/src/rt_os-rtai3.cpp
+endif
 if XENOMAI
 run_SOURCES += \
 		$(top_srcdir)/src/rt_os-xenomai.cpp

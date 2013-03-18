@@ -56,6 +56,10 @@ EXTRA_DIST = \
 		$(top_srcdir)/src/rt_os-rtai3.cpp \
 		$(top_srcdir)/src/rt_os-xenomai.cpp
 
+if RTAI3
+rtxi_SOURCES += \
+		$(top_srcdir)/src/rt_os-rtai3.cpp
+endif
 if XENOMAI
 rtxi_SOURCES += \
 		$(top_srcdir)/src/rt_os-xenomai.cpp
