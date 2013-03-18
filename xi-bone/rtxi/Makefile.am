@@ -56,18 +56,18 @@ EXTRA_DIST = \
 		$(top_srcdir)/src/rt_os-rtai3.cpp \
 		$(top_srcdir)/src/rt_os-xenomai.cpp
 
-if RTAI3
-rtxi_SOURCES += \
-		$(top_srcdir)/src/rt_os-rtai3.cpp
-endif
-if XENOMAI
-rtxi_SOURCES += \
-		$(top_srcdir)/src/rt_os-xenomai.cpp
-endif
-if POSIX
+#if RTAI3
+#rtxi_SOURCES += \
+#		$(top_srcdir)/src/rt_os-rtai3.cpp
+#endif
+#if XENOMAI
+#rtxi_SOURCES += \
+#		$(top_srcdir)/src/rt_os-xenomai.cpp
+#endif
+#if POSIX
 rtxi_SOURCES += \
 		$(top_srcdir)/src/rt_os-posix.cpp
-endif
+#endif
 
 # MOC Rule - builds meta-object files as needed
 moc_%.cpp: $(top_srcdir)/include/%.h

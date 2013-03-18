@@ -7,10 +7,7 @@ SUBDIRS = \
 	amplifier_control/axon_axopatch1d_commander \
 	amplifier_control/axon_axopatch200_commander \
 	amplifier_control/axon_multiclamp700_commander \
-	analogy_device \
 	clamp_protocol \
-	comedi_device \
-	comedilib_device \
 	connector \
 	data_recorder \
 	dynamo_model_loader \
@@ -20,7 +17,6 @@ SUBDIRS = \
 	mimic \
 	model_loader \
 	neuron \
-	ni_device \
 	noisegen \
 	oscilloscope \
 	performance_measurement \
@@ -29,4 +25,3 @@ SUBDIRS = \
 	synch \
 	userprefs \
 	wave_maker
-

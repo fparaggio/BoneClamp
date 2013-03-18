@@ -1,9 +1,9 @@
 
 
-bin_SCRIPTS = init_rtxi rtxi_comedi rtxi_plugin_config
+bin_SCRIPTS = init_rtxi rtxi_plugin_config
 
 CLEANFILES = *~ 
-DISTCLEANFILES = init_rtxi rtxi_comedi rtxi_plugin_config
+DISTCLEANFILES = init_rtxi rtxi_plugin_config
 
 
 

@@ -44,18 +44,18 @@ run_SOURCES = \
 nodist_run_SOURCES = \
 		$(top_srcdir)/src/moc_plugin.cpp
 
-if RTAI3
-run_SOURCES += \
-		$(top_srcdir)/src/rt_os-rtai3.cpp
-endif
-if XENOMAI
-run_SOURCES += \
-		$(top_srcdir)/src/rt_os-xenomai.cpp
-endif
-if POSIX
+#if RTAI3
+#run_SOURCES += \
+#		$(top_srcdir)/src/rt_os-rtai3.cpp
+#endif
+#if XENOMAI
+#run_SOURCES += \
+#		$(top_srcdir)/src/rt_os-xenomai.cpp
+#endif
+#if POSIX
 run_SOURCES += \
 		$(top_srcdir)/src/rt_os-posix.cpp
-endif
+#endif
 
 test_plugin_module_la_LDFLAGS = -module -avoid-version
 
