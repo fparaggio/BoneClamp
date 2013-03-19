@@ -7,7 +7,7 @@
 
 #	Filename: autogen.sh to generate xi-bone makefiles
 
-# Written in 2013 by:
+#	Written in 2013 by:
 #		Jon Newman <jnewman6@gatech.edu>
 #		Yogi Patel <yapatel@gatech.edu>
 
