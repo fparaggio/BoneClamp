@@ -15,8 +15,6 @@ BoneClamp is an effort to create a fully programable, real-time, low-cost, data 
 # Licensing
 To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
 
-You should have received a copy of the CC Public Domain Dedication along with this software. If not, see <http://creativecommons.org/licenses/by-sa/3.0/legalcode>.
-
 You are free:
 to Share — to copy, distribute and transmit the work
 to Remix — to adapt the work
@@ -36,3 +34,5 @@ The author's moral rights;
 Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.
 
 Notice — For any reuse or distribution, you must make clear to others the license terms of this work. The best way to do this is with a link to this web page.
+
+You should have received a copy of the CC Public Domain Dedication along with this software. If not, see <http://creativecommons.org/licenses/by-sa/3.0/legalcode>.
