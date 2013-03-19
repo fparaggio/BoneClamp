@@ -12,6 +12,7 @@ BoneClamp is an effort to create a fully programable, real-time, low-cost, data 
 # More information
 [BoneClamp Wiki] (https://potterlab.gatech.edu/main/newman/wiki/index.php?title=BoneClamp)
 
+# Licensing
 To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
 
 You should have received a copy of the CC Public Domain Dedication along with this software. If not, see <http://creativecommons.org/licenses/by-sa/3.0/legalcode>.
