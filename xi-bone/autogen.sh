@@ -7,6 +7,10 @@
 
 #	Filename: autogen.sh to generate xi-bone makefiles
 
+#	Written in 2013 by:
+#		Jon Newman <jnewman6@gatech.edu>
+#		Yogi Patel <yapatel@gatech.edu>
+
 #	To the extent possible under law, the author(s) have dedicated all copyright
 #	and related and neighboring rights to this software to the public domain
 #	worldwide. This software is distributed without any warranty.
