@@ -4,7 +4,7 @@
 *.bin
 *.o
 *.exe
-
+*.so
 
 # Ignore the backup files created by EAGLE
 *.s\#*
