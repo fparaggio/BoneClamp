@@ -51,7 +51,7 @@ typedef struct {
 
 	int mem_fd;
 
-} ads7945_data;
+} ads8331_data;
 
 void sleepms(int ms) {
 	nanosleep((struct timespec[]){{0, ms*100000}}, NULL);
@@ -74,7 +74,7 @@ static uint32_t read_uint32_hex_from_file(const char *file) {
 	return value;
 }
 
-static int load_pruss_dram_info(ads7945_data *info) {
+static int load_pruss_dram_info(ads8331_data *info) {
 
 	info->ddr_size = read_uint32_hex_from_file(UIO_PRUSS_DRAM_SIZE);
 	info->ddr_base_location = read_uint32_hex_from_file(UIO_PRUSS_DRAM_ADDR);
@@ -88,7 +88,7 @@ static int load_pruss_dram_info(ads7945_data *info) {
 	return 0;
 }
 
-static int init(ads7945_data *info)
+static int init(ads8331_data *info)
 {
 
 	load_pruss_dram_info(info);
@@ -138,13 +138,13 @@ static int init(ads7945_data *info)
 	return(0);
 }
 
-void check(ads7945_data *info) {
+void check(ads8331_data *info) {
 
 }
 
-ads7945_data info;
+ads8331_data info;
 
-void deinit(ads7945_data *info) {
+void deinit(ads8331_data *info) {
 	prussdrv_pru_disable(PRU_NUM0);
 	prussdrv_pru_disable(PRU_NUM1);
 	prussdrv_exit();
@@ -298,13 +298,149 @@ void* consumer(void *arg) {
 
 int main (void)
 {
+	FILE *fp;
 	unsigned int ret;
 	pthread_t tid;
-	// struct pru_data	pru;ls
+	// struct pru_data	pru;
+
+	/* Set ADC SCLK */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return(1);
+	}
+	fprintf(fp,"36");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio36/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* Set ADC CS */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"33");
+	fclose(fp);
+	
+	if((fp=fopen("/sys/class/gpio/gpio33/direction", "w"))==NULL){
+		printf("cannot open gpio direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* Set ADC SDI */
+	if ((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"62");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio62/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* Set ADC SDO */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"63");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio63/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"in");
+	fclose(fp);
+
+	/* Set ADC CNV */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"37");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio37/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* set DAC SCLK */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"47");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio47/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* set DAC CS */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"46");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio46/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* set DAC SDI */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"44");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio44/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"out");
+	fclose(fp);
+
+	/* set DAC SDO */
+	if((fp=fopen("/sys/class/gpio/export", "w"))==NULL){
+		printf("Cannot open GPIO file.\n");
+		return (1);
+	}
+	fprintf(fp,"45");
+	fclose(fp);
+
+	if((fp=fopen("/sys/class/gpio/gpio45/direction", "w"))==NULL){
+		printf("Cannot open GPIO direction file.\n");
+		return(1);
+	}
+	fprintf(fp,"in");
+	fclose(fp);
 
 	tpruss_intc_initdata pruss_intc_initdata = PRUSS_INTC_INITDATA;
 
-	printf("\nINFO: Starting %s example.\r\n", "ads7945");
+	printf("\nINFO: Starting %s example.\r\n", "ads8331");
 	/* Initialize the PRU */
 	prussdrv_init();
 
@@ -338,10 +474,10 @@ int main (void)
 	pthread_create(&tid, NULL, &rt_print_consumer, NULL);
 
 	/* Execute example on PRU */
-	printf("\tINFO: Executing pru1.bin\r\n");
-	prussdrv_exec_program (PRU_NUM1, "./pru1.bin");
-	printf("\t\tINFO: Executing example on PRU0.\r\n");
-	prussdrv_exec_program (PRU_NUM0, "./pru0.bin");
+	printf("\tINFO: Executing PRU1\r\n");
+	prussdrv_exec_program (PRU_NUM1, "./PRU1.bin");
+	printf("\t\tINFO: Executing PRU0\r\n");
+	prussdrv_exec_program (PRU_NUM0, "./PRU0.bin");
 
 	/* Wait until PRU1 has finished execution */
 	printf("\t\tINFO: Waiting for HALT command.\r\n");
