@@ -1,12 +1,8 @@
 # Some rules to ignore certain files
 
 # Ignore all images/modules/execultables/binaries etc.
+*.zip
 *.bin
 *.o
 *.exe
 *.so
-
-# Ignore the backup files created by EAGLE
-*.s\#*
-*.b\#*
-*.l\#*
